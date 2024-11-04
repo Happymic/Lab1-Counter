@@ -49,12 +49,13 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i+1);
         // ---end of Vbuddy output section
         */
-        
+         
 
         // Change rst and en signals during simulation
         top->rst = (i < 2) | (i == 15);
         //top->en = (i > 4);
         top->en = vbdFlag(); //using flag as en signal
+        
         vbdSetMode(1);
 
         if (Verilated::gotFinish()) exit(0);
